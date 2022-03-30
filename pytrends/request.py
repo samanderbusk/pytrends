@@ -141,10 +141,7 @@ class TrendReq(object):
         # Google mostly sends 'application/json' in the Content-Type header,
         # but occasionally it sends 'application/javascript
         # and sometimes even 'text/javascript
-        if response.status_code == 200 and 'application/json' in \
-                response.headers['Content-Type'] or \
-                'application/javascript' in response.headers['Content-Type'] or \
-                'text/javascript' in response.headers['Content-Type']:
+        if response.status_code == 200:
             # trim initial characters
             # some responses start with garbage characters, like ")]}',"
             # these have to be cleaned before being passed to the json parser
